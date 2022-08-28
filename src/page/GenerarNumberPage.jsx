@@ -16,22 +16,23 @@ export function FormNumRamdon(){
         <>
             <InfoNumberLimit limit={limit} />
             { !hideMe && <div className="container is-max-desktop mt-2 " >
-                <div className="columns is-centered is-2">
-                    <div className="column is-three-fifths "><input className="input is-success" type='text' placeholder="Coloca el numero limite" onKeyUp={(e)=>inputNumber(e.target.value,setLimit)} /></div>
+                <div className="columns is-centered is-2 mt-6">
+                    <div className="column is-three-fifths "><input className="input is-success" type='text' placeholder="Coloca el numero limite" onKeyUp={(e)=>inputNumber(e,e.target.value,setLimit)} /></div>
                     <div className="column is-2"><button className="button is-success" onClick={()=>handleClick(setHideMe,limit,setShowAlert,setNumber)}> Aceptar</button></div>
                 </div>            
             </div>}
             {
                 hideMe &&
                 <div className="container" >
-                    {showProgress && <progress className="progress is-small is-primary" max="100">15%</progress>}
+                    {showProgress && <progress className="progress is-small is-primary mt-6 mb-6" max="100">15%</progress>}
                     {!showProgress && <NumberSelected number={number} />}
                     <ActionButtons setShowProgress={setShowProgress} setHideMe={setHideMe} limit={limit} setNumber={setNumber} hideMe={false} />
                 </div>
             }
             {showAlert && 
+            <div className="mt-6" >
             <NotificationError message={'El numero limite se encuentra en Cero o vacio.'} />
-            
+            </div>
             }
            
             
